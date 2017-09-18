@@ -20,8 +20,16 @@ document.addEventListener('DOMContentLoaded', function() {
 		   date.getSeconds(),
 		];
 		
-		var formatted = datevalues[3]+":"+datevalues[4]+":"+datevalues[5];
+		var formatted = zeroPadding(datevalues[3],2)+"&nbsp;:&nbsp;"+zeroPadding(datevalues[4],2)+"&nbsp;:&nbsp;"+zeroPadding(datevalues[5],2);
 		$('#h4id').html(formatted);
+		
+		function zeroPadding(num, digit) {
+			var zero = '';
+			for(var i = 0; i < digit; i++) {
+				zero += '0';
+			}
+			return (zero + num).slice(-digit);
+		}
    },
    type: 'GET'
 });
